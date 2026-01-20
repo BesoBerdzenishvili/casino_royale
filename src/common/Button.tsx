@@ -30,7 +30,7 @@ const StyledButton = styled(MUIButton)<{ install?: boolean }>`
   }
 `;
 
-const Span = styled.span`
+const StyledSpan = styled.span`
   display: flex;
   align-items: center;
 `;
@@ -39,9 +39,9 @@ const Button: React.FC<Props> = ({ install = false, onClick }) => {
   return (
     <StyledButton variant="contained" install={install} onClick={onClick}>
       {install ? (
-        <Span>
+        <StyledSpan>
           <img src={download} alt="download" /> "Install App"
-        </Span>
+        </StyledSpan>
       ) : (
         "OPEN THE GAME"
       )}
