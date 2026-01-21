@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { useTranslation } from "react-i18next";
 import { Instagram, Telegram, X, Email } from "@mui/icons-material";
 
 const Container = styled.div`
@@ -64,9 +65,11 @@ const EmailButton = styled(IconButton)`
 `;
 
 const SocialMediaIcons: React.FC = () => {
+  const { t } = useTranslation();
+
   return (
     <Container>
-      <Title>Us on social media:</Title>
+      <Title>{t("social.title")}</Title>
       <IconsWrapper>
         <InstagramButton href="#" aria-label="Instagram">
           <Instagram sx={{ fontSize: 32, color: "white" }} />

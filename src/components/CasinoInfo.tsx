@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { useTranslation } from "react-i18next";
 import eightneen from "../assets/18.png";
 import loho from "../assets/loho.png";
 
@@ -49,16 +50,18 @@ const Text = styled.p`
 `;
 
 const CasinoInfo: React.FC<Props> = ({ second = false }) => {
+  const { t } = useTranslation();
+
   return (
     <Container $second={second}>
       <InfoBox>
         <Icon src={eightneen} alt="18+" />
-        <Text>Only 18+</Text>
+        <Text>{t("info.age")}</Text>
       </InfoBox>
 
       <InfoBox>
         <Icon src={loho} alt="Certified" />
-        <Text>Casino is certified by the Anjouan Gaming Authority</Text>
+        <Text>{t("info.certified")}</Text>
       </InfoBox>
     </Container>
   );

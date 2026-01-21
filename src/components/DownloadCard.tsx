@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { useTranslation } from "react-i18next";
 import casinoLogo from "../assets/casino_royale.png";
 import Button from "../common/Button";
 
@@ -54,12 +55,14 @@ const ButtonWrapper = styled.div`
 `;
 
 export const DownloadCard = () => {
+  const { t } = useTranslation();
+
   return (
     <DashedBorder>
       <Logo src={casinoLogo} alt="Casino Royale" />
 
-      <Title>Download Casino</Title>
-      <Subtitle>Play Min anywhere, anytime</Subtitle>
+      <Title>{t("download.title")}</Title>
+      <Subtitle>{t("download.subtitle")}</Subtitle>
 
       <ButtonWrapper>
         <Button install />
