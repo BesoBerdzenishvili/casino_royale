@@ -20,6 +20,10 @@ const LangSelectorContainer = styled.div`
   backdrop-filter: blur(10px);
   opacity: 1;
   transform: rotate(0deg);
+
+  @media (max-width: 768px) {
+    margin-bottom: 40px;
+  }
 `;
 
 const StyledSelect = styled(Select)`
