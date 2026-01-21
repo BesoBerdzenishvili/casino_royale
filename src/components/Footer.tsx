@@ -13,16 +13,16 @@ const Container = styled.footer`
   bottom: 0;
   left: 0;
   right: 0;
-  width: 100vw;
   background: linear-gradient(270deg, #06225d 0%, #02011f 37.03%);
-  padding: 60px 30px;
+  padding: 60px 0px;
 
   @media (min-width: 1200px) {
-    height: 415px;
+    max-height: 415px;
     display: flex;
     flex-direction: row;
     align-items: initial;
     justify-content: space-between;
+    padding-right: 30px;
   }
 
   @media (min-width: 768px) and (max-width: 1199px) {
@@ -41,6 +41,11 @@ const Container = styled.footer`
 const ContainerOne = styled.div`
   display: flex;
   align-items: center;
+
+  @media (max-width: 768px) {
+    width: 100%;
+    justify-content: center;
+  }
 `;
 
 const ContainerTwo = styled.div`
