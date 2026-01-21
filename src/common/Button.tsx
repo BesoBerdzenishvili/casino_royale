@@ -10,8 +10,7 @@ interface Props {
 
 const StyledButton = styled(MUIButton)<{ install?: boolean }>`
   && {
-    width: 100%;
-    max-width: ${({ install }) => (install ? "250px" : "358.5px")};
+    width: ${({ install }) => (install ? "250px" : "358.5px")};
     height: 56px;
     border-radius: 12px;
     opacity: 1;
