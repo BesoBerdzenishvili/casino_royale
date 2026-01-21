@@ -18,7 +18,7 @@ const Container = styled.footer`
   padding: 60px 30px;
 
   @media (min-width: 1200px) {
-    height: 415px;
+    max-height: 415px;
     display: flex;
     flex-direction: row;
     align-items: initial;
@@ -41,6 +41,11 @@ const Container = styled.footer`
 const ContainerOne = styled.div`
   display: flex;
   align-items: center;
+
+  @media (max-width: 768px) {
+    width: 100%;
+    justify-content: center;
+  }
 `;
 
 const ContainerTwo = styled.div`
