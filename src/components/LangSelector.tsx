@@ -1,6 +1,7 @@
-import { useState } from "react";
-import { MenuItem, Select } from "@mui/material";
+import { useState, useEffect } from "react";
+import { MenuItem, Select, type SelectChangeEvent } from "@mui/material";
 import styled from "styled-components";
+import { useTranslation } from "react-i18next";
 
 const LangSelectorContainer = styled.div`
   width: 100%;
@@ -43,20 +44,26 @@ const StyledSelect = styled(Select)`
 `;
 
 const LangSelector = () => {
-  const [language, setLanguage] = useState("English");
+  const { i18n } = useTranslation();
+  const [language, setLanguage] = useState(i18n.language || "en");
 
-  // replace any
-  const handleChange = (event: any) => {
-    setLanguage(event.target.value as string);
+  useEffect(() => {
+    setLanguage(i18n.language);
+  }, [i18n.language]);
+
+  const handleChange = (event: SelectChangeEvent<unknown>) => {
+    const newLang = event.target.value as string;
+    setLanguage(newLang);
+    i18n.changeLanguage(newLang);
   };
 
   return (
-    // add flag
+    //  add flag
     <LangSelectorContainer>
       <StyledSelect value={language} onChange={handleChange} displayEmpty>
-        <MenuItem value="English">English</MenuItem>
-        <MenuItem value="Russian">Russian</MenuItem>
-        <MenuItem value="Georgian">Georgian</MenuItem>
+        <MenuItem value="en">English</MenuItem>
+        <MenuItem value="ru">Русский</MenuItem>
+        <MenuItem value="ka">ქართული</MenuItem>
       </StyledSelect>
     </LangSelectorContainer>
   );
