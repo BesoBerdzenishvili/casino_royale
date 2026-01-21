@@ -92,9 +92,16 @@ const LangSelector = () => {
         value={language}
         onChange={handleChange}
         renderValue={(value) => (
-          <div style={{ display: "flex", alignItems: "center" }}>
+          <div
+            style={{
+              display: "flex",
+              alignItems: "center",
+              color: "white",
+              fontWeight: 200,
+            }}
+          >
             <FlagWrapper>
-              <Flag src={langMap[value as string].flag} alt="" />
+              <Flag src={langMap[value as string].flag} alt="flag" />
             </FlagWrapper>
             {langMap[value as string].name}
           </div>
