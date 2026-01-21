@@ -22,7 +22,7 @@ const StyledSelect = styled(Select)`
   color: white;
   background: transparent;
   border: none;
-  width: 100%;
+  width: 289px;
   font-size: 16px;
 
   .MuiSelect-icon {
