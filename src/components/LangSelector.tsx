@@ -2,6 +2,9 @@ import { useState, useEffect } from "react";
 import { MenuItem, Select, type SelectChangeEvent } from "@mui/material";
 import styled from "styled-components";
 import { useTranslation } from "react-i18next";
+import en from "../assets/en.png";
+import ge from "../assets/ge.png";
+import ru from "../assets/ru.png";
 
 const LangSelectorContainer = styled.div`
   width: 100%;
@@ -43,9 +46,31 @@ const StyledSelect = styled(Select)`
   }
 `;
 
+const FlagWrapper = styled.div`
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 1px solid white;
+  overflow: hidden;
+  margin-right: 12px;
+  flex-shrink: 0;
+`;
+
+const Flag = styled.img`
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+`;
+
 const LangSelector = () => {
   const { i18n } = useTranslation();
   const [language, setLanguage] = useState(i18n.language || "en");
+
+  const langMap: Record<string, { flag: string; name: string }> = {
+    en: { flag: en, name: "English" },
+    ru: { flag: ru, name: "Русский" },
+    ka: { flag: ge, name: "ქართული" },
+  };
 
   useEffect(() => {
     setLanguage(i18n.language);
@@ -58,12 +83,27 @@ const LangSelector = () => {
   };
 
   return (
-    //  add flag
     <LangSelectorContainer>
-      <StyledSelect value={language} onChange={handleChange} displayEmpty>
-        <MenuItem value="en">English</MenuItem>
-        <MenuItem value="ru">Русский</MenuItem>
-        <MenuItem value="ka">ქართული</MenuItem>
+      <StyledSelect
+        value={language}
+        onChange={handleChange}
+        renderValue={(value) => (
+          <div style={{ display: "flex", alignItems: "center" }}>
+            <FlagWrapper>
+              <Flag src={langMap[value as string].flag} alt="" />
+            </FlagWrapper>
+            {langMap[value as string].name}
+          </div>
+        )}
+      >
+        {Object.entries(langMap).map(([code, { flag, name }]) => (
+          <MenuItem key={code} value={code}>
+            <FlagWrapper>
+              <Flag src={flag} alt="" />
+            </FlagWrapper>
+            {name}
+          </MenuItem>
+        ))}
       </StyledSelect>
     </LangSelectorContainer>
   );
