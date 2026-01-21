@@ -15,19 +15,30 @@ const Container = styled.div<{ $second?: boolean }>`
 
   @media (max-width: 1200px) {
     display: ${(p) => (p.$second ? "flex" : "none")};
+    margin-top: 14px;
+    width: 70%;
     flex-direction: row;
+    justify-content: center;
     gap: 2rem;
+  }
+
+  @media (max-width: 767px) {
+    flex-direction: column;
   }
 `;
 
 const InfoBox = styled.div`
   display: flex;
   align-items: center;
-  gap: 1.5rem;
+  gap: 1rem;
 
   @media (max-width: 1200px) {
     flex-direction: column;
     text-align: center;
+    margin-left: 100px;
+  }
+  @media (max-width: 767px) {
+    margin-left: 0;
   }
 `;
 
