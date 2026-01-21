@@ -47,7 +47,6 @@ const Container = styled.main`
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  width: 100vw;
   height: 100vh;
 `;
 
